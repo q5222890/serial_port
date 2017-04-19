@@ -1,6 +1,7 @@
 package com.zack.intelligent.serialport;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -8,7 +9,7 @@ import android.widget.TextView;
 import java.io.IOException;
 
 public class ConsoleActivity extends SerialPortActivity {
-    EditText mReception;
+    private EditText mReception;
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);

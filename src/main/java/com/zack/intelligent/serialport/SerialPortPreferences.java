@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.serialport.SerialPortFinder;
 import android.util.Log;
 
-import com.android.serialport.SerialPortFinder;
 
 public class SerialPortPreferences extends PreferenceActivity {
 

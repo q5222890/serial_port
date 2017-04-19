@@ -2,10 +2,9 @@ package com.zack.intelligent.serialport;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.serialport.SerialPort;
+import android.serialport.SerialPortFinder;
 import android.util.Log;
-
-import com.android.serialport.SerialPort;
-import com.android.serialport.SerialPortFinder;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +38,7 @@ public class App extends Application {
             if ((str.length() == 0) || (i == -1)) {
                 throw new InvalidParameterException();
             }
-            this.mSerialPort = new SerialPort(new File(str), i, 0);
+            this.mSerialPort = new SerialPort(new File(str), i);
         }
         return this.mSerialPort;
     }

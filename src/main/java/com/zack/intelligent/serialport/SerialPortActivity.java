@@ -2,10 +2,9 @@ package com.zack.intelligent.serialport;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.serialport.SerialPort;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-
-import com.android.serialport.SerialPort;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -88,4 +87,27 @@ public abstract class SerialPortActivity extends AppCompatActivity {
             }
         }
     }
+
+//    private class ReadThread extends Thread {
+//
+//        @Override
+//        public void run() {
+//            super.run();
+//            while(!isInterrupted()) {
+//                int size;
+//                try {
+//                    byte[] buffer = new byte[64];
+//                    if (mInputStream == null) return;
+//                    size = mInputStream.read(buffer);
+//                    if (size > 0) {
+//                        //process data here !
+//                        onDataReceiveListener.onDataReceive(buffer, size);
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                    return;
+//                }
+//            }
+//        }
+//    }
 }

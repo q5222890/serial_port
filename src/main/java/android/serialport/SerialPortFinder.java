@@ -1,4 +1,4 @@
-package android.serialport.api;
+package android.serialport;
 
 import android.util.Log;
 
@@ -14,7 +14,6 @@ import java.util.Vector;
  */
 
 public class SerialPortFinder {
-
 
     private static final String TAG = "SerialPort";
     private Vector<Driver> mDrivers = null;
@@ -68,9 +67,14 @@ public class SerialPortFinder {
             localLineNumberReader = new LineNumberReader(new FileReader("/proc/tty/drivers"));
         }
         for (; ; ) {
-            String local = localLineNumberReader.readLine();
+            String local = null;
+            if (localLineNumberReader != null) {
+                local = localLineNumberReader.readLine();
+            }
             if (local == null) {
-                localLineNumberReader.close();
+                if (localLineNumberReader != null) {
+                    localLineNumberReader.close();
+                }
                 return this.mDrivers;
             }
             String str = local.substring(0, 21).trim();

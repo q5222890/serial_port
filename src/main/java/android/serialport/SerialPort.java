@@ -1,4 +1,4 @@
-package android.serialport.api;
+package android.serialport;
 
 import android.util.Log;
 
@@ -15,6 +15,7 @@ import java.io.OutputStream;
  */
 
 public class SerialPort {
+
     private static final String TAG = "SerialPort";
     private FileDescriptor mFd;
     private FileInputStream mFileInputStream;
@@ -24,22 +25,22 @@ public class SerialPort {
         System.loadLibrary("serial_port");
     }
 
-    public SerialPort(File device, int baudrate, int flag)
+    public SerialPort(File paramFile, int paramInt)
             throws SecurityException, IOException {
-        if ((!device.canRead()) || (!device.canWrite())) {
+        if ((!paramFile.canRead()) || (!paramFile.canWrite())) {
             try {
                 Process localProcess = Runtime.getRuntime().exec("/system/bin/su");
-                String str = "chmod 666 " + device.getAbsolutePath() + "\n" + "exit\n";
+                String str = "chmod 666 " + paramFile.getAbsolutePath() + "\n" + "exit\n";
                 localProcess.getOutputStream().write(str.getBytes());
-                if ((localProcess.waitFor() != 0) || (!device.canRead()) || (!device.canWrite())) {
+                if ((localProcess.waitFor() != 0) || (!paramFile.canRead()) || (!paramFile.canWrite())) {
                     throw new SecurityException();
                 }
-            } catch (Exception paramFile) {
-                paramFile.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 throw new SecurityException();
             }
         }
-        this.mFd = open(device.getAbsolutePath(), baudrate, flag);
+        this.mFd = open(paramFile.getAbsolutePath(), paramInt);
         if (this.mFd == null) {
             Log.e("SerialPort", "native open returns null");
             throw new IOException();
@@ -48,7 +49,7 @@ public class SerialPort {
         this.mFileOutputStream = new FileOutputStream(this.mFd);
     }
 
-    private static native FileDescriptor open(String paramString, int paramInt1, int paramInt2);
+    private static native FileDescriptor open(String paramString, int paramInt);
 
     public native void close();
 

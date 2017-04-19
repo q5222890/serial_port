@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="EditTextReception">false</item>
+    <item type="id" name="EditTextEmission">false</item>
+    <item type="id" name="LinearLayout01">false</item>
+    <item type="id" name="TextViewOutgoing">false</item>
+    <item type="id" name="TextViewOutgoingValue">false</item>
+    <item type="id" name="ImageView01">false</item>
+    <item type="id" name="TextViewIncoming">false</item>
+    <item type="id" name="TextViewIncomingValue">false</item>
+    <item type="id" name="ImageView02">false</item>
+    <item type="id" name="RelativeLayout01">false</item>
+    <item type="id" name="ButtonSetup">false</item>
+    <item type="id" name="ButtonConsole">false</item>
+    <item type="id" name="ButtonLoopback">false</item>
+    <item type="id" name="ButtonAbout">false</item>
+    <item type="id" name="ButtonQuit">false</item>
+</resources>

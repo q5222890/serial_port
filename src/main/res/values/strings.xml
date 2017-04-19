@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Serial Port</string>
+    <string name="about_msg">"This program is the sample application provided with project android-serialport-api. The project is free and open source.
+
+More information and bug report on:
+http://code.google.com/p/android-serialport-api/
+
+- Cédric"</string>
+    <string name="error_configuration">Please configure your serial port first.</string>
+    <string name="error_security">You do not have read/write permission to the serial port.</string>
+    <string name="error_unknown">The serial port can not be opened for an unknown reason.</string>
+    <string name="setup">setup</string>
+    <string name="loopback">loopback</string>
+    <string name="about">about</string>
+    <string name="quit">quit</string>
+    <string name="console">console</string>
+</resources>
